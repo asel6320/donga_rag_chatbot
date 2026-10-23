@@ -617,33 +617,6 @@ When are the final exams?
 
 ---
 
-# 🔐 Безопасность
-
-API keys не хранятся в GitHub.
-
-Файл:
-
-```text
-.env
-```
-
-исключен через `.gitignore`.
-
-В репозитории находится только:
-
-```text
-.env.example
-```
-
-с пустым значением:
-
-```env
-GROQ_API_KEY=
-LLM_MODEL=openai/gpt-oss-20b
-```
-
----
-
 # 🎯 Цель проекта
 
 Цель Smart University Knowledge Hub — показать, как RAG может использоваться для создания надежного университетского AI-помощника, который:
