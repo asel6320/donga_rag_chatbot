@@ -1,0 +1,96 @@
+[
+  {"id": "T01", "question": "What is the application fee?", "expected_pages": [14], "keywords": ["60,000"], "answer_keywords": ["60,000"]},
+  {"id": "T02", "question": "What are the dates of the 1st round online application?", "expected_pages": [5], "keywords": ["2026.09.30", "10.14"], "answer_keywords": ["09.30", "10.14"]},
+  {"id": "T03", "question": "When is the 2nd round online application period?", "expected_pages": [5], "keywords": ["2026.12.09", "12.23"], "answer_keywords": ["12.09", "12.23"]},
+  {"id": "T04", "question": "What is the minimum IELTS score required?", "expected_pages": [6], "keywords": ["IELTS", "5.5"], "answer_keywords": ["5.5"]},
+  {"id": "T05", "question": "How much is the first semester tuition for Global Media?", "expected_pages": [14], "keywords": ["3,653,500"], "answer_keywords": ["3,653,500"]},
+  {"id": "T06", "question": "What is the second semester tuition for the Global IT department?", "expected_pages": [14], "keywords": ["4,450,600"], "answer_keywords": ["4,450,600"]},
+  {"id": "T07", "question": "What scores are needed for the full tuition scholarship for freshmen?", "expected_pages": [14], "keywords": ["IELTS 7.0", "Full Tuition"], "answer_keywords": ["7.0"]},
+  {"id": "T08", "question": "How much does the dormitory cost for female students?", "expected_pages": [16], "keywords": ["939,000"], "answer_keywords": ["939,000"]},
+  {"id": "T09", "question": "How much money must the bank statement show for an applicant living overseas?", "expected_pages": [11], "keywords": ["16,000,000"], "answer_keywords": ["16,000,000"]},
+  {"id": "T10", "question": "Can I send my application documents by email or post?", "expected_pages": [9], "keywords": ["cannot be submitted by mail or e-mail"], "answer_keywords": []},
+  {"id": "T11", "question": "Who is eligible regarding nationality?", "expected_pages": [6], "keywords": ["non-Korean"], "answer_keywords": ["non-Korean"]},
+  {"id": "T12", "question": "Which countries are exempt from the English language requirement?", "expected_pages": [6, 14], "keywords": ["South Africa", "New Zealand"], "answer_keywords": ["New Zealand"]},
+  {"id": "T13", "question": "By what date must original documents be submitted in the 1st round?", "expected_pages": [12, 14], "keywords": ["2026.11.24"], "answer_keywords": ["11.24"]},
+  {"id": "T14", "question": "What is the phone number of the Office of International Affairs?", "expected_pages": [12, 17], "keywords": ["51-200-6444"], "answer_keywords": ["51-200-6444"]},
+  {"id": "T15", "question": "Can I change my major after I apply?", "expected_pages": [4, 12], "keywords": ["not allowed to change"], "answer_keywords": []},
+  {"id": "T16", "question": "Is an English test taken three years ago accepted?", "expected_pages": [6, 7], "keywords": ["within 2 years"], "answer_keywords": []},
+  {"id": "T17", "question": "How much is the private insurance for international students?", "expected_pages": [16], "keywords": ["35,000"], "answer_keywords": ["35,000"]},
+  {"id": "T18", "question": "How much is the TOPIK level 4 scholarship for Global Advanced Integrated Engineering students?", "expected_pages": [15], "keywords": ["1,000,000"], "answer_keywords": ["1,000,000"]},
+  {"id": "T19", "question": "When are the interviews for the 1st round?", "expected_pages": [5], "keywords": ["2026.11.02"], "answer_keywords": ["11.02"]},
+  {"id": "T20", "question": "Где находится факультет Global IT?", "expected_pages": [18], "keywords": ["S06-0622"], "answer_keywords": ["S06"]},
+  {"id": "T21", "question": "Какой размер вступительного взноса за подачу заявки?", "expected_pages": [14], "keywords": ["60,000"], "answer_keywords": ["60,000"]},
+  {
+  "id": "P01",
+  "question": "휴학연기는 몇 번 사용할 수 있습니까?",
+  "expected_pages": [22],
+  "keywords": ["휴학"],
+  "answer_keywords": ["한 번"]
+},
+{
+  "id": "P02",
+  "question": "Сколько раз можно продлить академический отпуск?",
+  "expected_pages": [21, 22],
+  "keywords": ["휴학"],
+  "answer_keywords": ["один"]
+},
+{
+  "id": "P03",
+  "question": "What happens if I do not return to university after my leave period ends?",
+  "expected_pages": [28],
+  "keywords": ["미복학", "제적"],
+  "answer_keywords": []
+},
+{
+  "id": "P04",
+  "question": "학사경고 기준이 어떻게 됩니까?",
+  "expected_pages": [44],
+  "keywords": ["1.5", "9학점"],
+  "answer_keywords": ["1.5", "9학점"]
+},
+
+  {
+  "id": "C01",
+  "question": "2026년 1학기 기말시험은 언제입니까?",
+  "expected_pages": [1],
+  "keywords": ["제1학기 기말시험", "2026. 6. 13.", "6. 19."],
+  "answer_keywords": ["6. 13", "6. 19"]
+},
+{
+  "id": "C02",
+  "question": "When are the first semester final exams in 2026?",
+  "expected_pages": [1],
+  "keywords": ["제1학기 기말시험", "2026. 6. 13.", "6. 19."],
+  "answer_keywords": ["June", "13", "19"]
+},
+{
+  "id": "C03",
+  "question": "Когда начинаются занятия во втором семестре 2026 года?",
+  "expected_pages": [1],
+  "keywords": ["제2학기 개강", "2026. 9. 1."],
+  "answer_keywords": ["2026"]
+},
+{
+  "id": "C04",
+  "question": "2026년 1학기 수강신청 기간은 언제입니까?",
+  "expected_pages": [1],
+  "keywords": ["제1학기 수강신청", "2026. 2. 4.", "2. 6."],
+  "answer_keywords": ["2. 4", "2. 6"]
+},
+{
+  "id": "C05",
+  "question": "When are the first semester midterm exams in 2026?",
+  "expected_pages": [1],
+  "keywords": ["제1학기 중간시험", "2026. 4. 21.", "4. 27."],
+  "answer_keywords": ["April", "21", "27"]
+},
+{
+  "id": "C06",
+  "question": "2026년 어린이날 휴강에 대한 보강일은 언제입니까?",
+  "expected_pages": [1],
+  "keywords": ["어린이날", "2026. 6. 9."],
+  "answer_keywords": ["6. 9"]
+},
+  {"id": "N01", "question": "How much is the tuition for the PhD program?", "expected_pages": [], "keywords": [], "answer_keywords": [], "should_refuse": true},
+  {"id": "N02", "question": "Who is the current rector of the university?", "expected_pages": [], "keywords": [], "answer_keywords": [], "should_refuse": true}
+]
