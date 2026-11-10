@@ -1,137 +1,129 @@
-# 🎓 Smart University Knowledge Hub — Dong-A University RAG Chatbot
+🎓 Smart University Knowledge Hub — Dong-A University RAG Chatbot
 
-Интеллектуальный помощник для поиска информации в официальных документах **Dong-A University**.
+프로젝트 소개
 
-Проект построен на архитектуре **RAG (Retrieval-Augmented Generation)**. Система ищет релевантную информацию только в загруженных официальных документах университета и использует найденный контекст для генерации ответа.
+Smart University Knowledge Hub는 동아대학교(Dong-A University)의 공식 문서를 기반으로 학생들에게 정확한 학사 및 입학 정보를 제공하는 AI 챗봇입니다.
 
-Основная цель проекта — уменьшить количество галлюцинаций LLM и предоставить студентам удобный способ поиска информации о поступлении, академических правилах и академическом календаре.
+본 프로젝트는 RAG(Retrieval-Augmented Generation, 검색 증강 생성) 아키텍처를 활용합니다. 사용자의 질문과 관련된 정보를 공식 문서에서 검색하고, 검색된 내용을 바탕으로 답변을 생성합니다.
 
----
+프로젝트의 주요 목표는 LLM의 환각(Hallucination) 현상을 최소화하고, 학생들이 입학 요강, 학사 규정 및 학사 일정에 관한 정보를 쉽고 빠르게 확인할 수 있도록 지원하는 것입니다.
 
-## 🚀 Возможности
+🚀 주요 기능
 
-- ответы на вопросы на основе официальных документов Dong-A University;
-- поддержка английского, корейского и русского языков;
-- автоматическое определение категории вопроса;
-- гибридный поиск: semantic search + BM25;
-- фильтрация документов по типу студента и уровню обучения;
-- сохранение метаданных источников;
-- отображение источников ответа;
-- fallback-ответ, если информации в базе знаний недостаточно;
-- логирование запросов для дальнейшей оценки системы;
-- тестирование retrieval-качества;
-- запуск через Streamlit;
-- контейнеризация с Docker и Docker Compose.
+동아대학교 공식 문서 기반 질의응답
 
----
+한국어, 영어, 러시아어 지원
 
-## 📚 База знаний
+질문 유형 자동 분류
 
-На данный момент система использует три основных типа официальной информации Dong-A University.
+Semantic Search와 BM25를 결합한 하이브리드 검색
 
-### 1. Поступление иностранных студентов
+학생 유형 및 학위 과정에 따른 문서 필터링
 
-Документ:
+문서 출처 및 메타데이터 관리
 
-```text
-2027_spring_international_student_undergraduate_admission.pdf
-```
+답변에 사용된 출처 표시
 
-Содержит информацию о:
+정보가 부족한 경우 대체 응답(Fallback) 제공
 
-- доступных направлениях обучения;
-- сроках подачи документов;
-- необходимых документах;
-- языковых требованиях;
-- стоимости обучения;
-- application fee;
-- стипендиях;
-- общежитии;
-- требованиях для иностранных абитуриентов.
+사용자 질문 및 검색 결과 로깅
 
-Категория:
+검색 성능 평가(Evaluation)
 
-```text
-applicant
-```
+Streamlit 기반 웹 인터페이스
 
----
+Docker 및 Docker Compose를 이용한 실행 환경 구성
 
-### 2. Академические правила
+📚 지식 베이스(Knowledge Base)
 
-Документ:
+현재 시스템은 동아대학교의 공식 자료를 세 가지 유형으로 분류하여 활용합니다.
 
-```text
-2026_donga_academics.pdf
-```
+1. 외국인 유학생 입학 안내
 
-Содержит информацию о:
+문서: 2027_spring_international_student_undergraduate_admission.pdf
 
-- регистрации на предметы;
-- повторном прохождении предметов;
-- оценках и GPA;
-- академическом отпуске;
-- возвращении после академического отпуска;
-- academic warning;
-- требованиях к выпуску;
-- признании кредитов.
+주요 내용:
 
-Категория:
+지원 가능한 학과 및 전공
 
-```text
-academic_policy
-```
+원서 접수 일정
 
----
+제출 서류
 
-### 3. Академический календарь
+어학 능력 요건
 
-Источник — официальный академический календарь Dong-A University.
+등록금 및 전형료
 
-Обработанная версия:
+장학금
 
-```text
-md/2026_donga_academic_calendar.md
-```
+기숙사
 
-Содержит информацию о:
+외국인 지원 자격
 
-- начале семестров;
-- периодах регистрации;
-- промежуточных экзаменах;
-- финальных экзаменах;
-- праздничных днях;
-- других академических датах.
+카테고리: applicant
 
-Категория:
+2. 학사 규정
 
-```text
-academic_calendar
-```
+문서: 2026_donga_academics.pdf
 
----
+주요 내용:
 
-## 🧠 Архитектура RAG
+수강신청
 
-Общий процесс работы системы:
+재수강
 
-```text
-Official Dong-A University Documents
+성적 및 GPA
+
+휴학 및 복학
+
+학사경고
+
+졸업 요건
+
+학점 인정
+
+카테고리: academic_policy
+
+3. 학사 일정
+
+출처: 동아대학교 공식 학사 일정 웹페이지
+
+변환 파일: md/2026_donga_academic_calendar.md
+
+주요 내용:
+
+학기 시작일
+
+수강신청 기간
+
+중간고사 및 기말고사
+
+공휴일
+
+기타 주요 학사 일정
+
+카테고리: academic_calendar
+
+🧠 RAG 시스템 아키텍처
+
+시스템의 전체 처리 과정은 다음과 같습니다.
+
+동아대학교 공식 문서 (PDF / Web)
                 │
                 ▼
-        PDF / Web Extraction
+           문서 추출
                 │
                 ▼
-           Markdown
+         Markdown 변환
                 │
                 ▼
-            Chunking
+         Chunking 처리
                 │
                 ▼
       Multilingual Embeddings
                 │
                 ▼
-             Chroma
+             ChromaDB
                 │
         ┌───────┴───────┐
         ▼               ▼
@@ -139,160 +131,151 @@ Official Dong-A University Documents
         │               │
         └───────┬───────┘
                 ▼
-       Hybrid Search / RRF
+      Hybrid Search / RRF
                 │
                 ▼
-          Top-K Context
+        Top-K 검색 결과
                 │
                 ▼
-              Groq
+            Groq LLM
                 │
                 ▼
-     Context-based Answer
+        문서 기반 답변 생성
                 │
                 ▼
-            Streamlit
-```
+           Streamlit
 
----
+🔎 검색 시스템
 
-## 🔎 Поиск информации
+Semantic Search
 
-Для retrieval используется гибридный подход.
+다국어 의미 기반 검색을 위해 다음 임베딩 모델을 사용합니다.
 
-### Semantic Search
-
-Для создания multilingual embeddings используется:
-
-```text
 intfloat/multilingual-e5-base
-```
 
-Модель позволяет искать информацию между несколькими языками.
+이 모델은 서로 다른 언어로 작성된 질문과 문서 사이의 의미적 유사성을 계산합니다.
 
-Например, пользователь может задать вопрос на английском или русском языке, даже если исходный документ написан на корейском языке.
+예를 들어 사용자가 영어로 질문하더라도 한국어로 작성된 학사 규정에서 관련 정보를 검색할 수 있습니다.
 
-### BM25
+BM25
 
-BM25 используется для keyword-based поиска.
+BM25는 키워드 기반 검색 알고리즘입니다.
 
-Это особенно полезно для:
+문서명, 날짜, 학과명 및 특정 학사 용어와 같은 정확한 키워드를 검색하는 데 활용됩니다.
 
-- названий документов;
-- дат;
-- терминов;
-- названий департаментов;
-- конкретных академических понятий.
+Hybrid Search
 
-### Hybrid Search
+Semantic Search와 BM25의 검색 결과를 Reciprocal Rank Fusion(RRF) 방식으로 결합합니다.
 
-Результаты semantic search и BM25 объединяются с помощью **Reciprocal Rank Fusion (RRF)**.
+이후 관련성이 높은 상위 문서 청크(Top-K)를 선택하여 LLM에 전달합니다.
 
-После объединения выбираются наиболее релевантные chunks для передачи LLM.
+🗂 질문 카테고리 자동 분류
 
----
+시스템은 사용자 질문을 분석하여 다음 카테고리 중 하나로 분류합니다.
 
-## 🗂 Автоматическое определение категории
-
-Перед retrieval система анализирует вопрос пользователя и определяет наиболее подходящую категорию:
-
-```text
 applicant
 academic_policy
 academic_calendar
 all
-```
 
-Например:
+분류 예시
 
-```text
+사용자 질문
+
+카테고리
+
 What scholarships are available?
-```
 
-→ `applicant`
+applicant
 
-```text
 Can I retake a course?
-```
 
-→ `academic_policy`
+academic_policy
 
-```text
 When are the final exams?
-```
 
-→ `academic_calendar`
+academic_calendar
 
-Если категория не может быть определена надежно, поиск выполняется по всей базе знаний.
+질문의 카테고리가 불명확한 경우 전체 지식 베이스를 대상으로 검색합니다.
 
----
+🌍 다국어 지원
 
-## 🌍 Мультиязычность
+시스템은 다음 세 가지 언어를 지원합니다.
 
-Система поддерживает:
+한국어
 
-- 🇬🇧 English
-- 🇰🇷 한국어
-- 🇷🇺 Русский
+영어
 
-Для retrieval используется multilingual embedding model.
+러시아어
 
-Система также формирует поисковый запрос с учетом нескольких языков, чтобы повысить вероятность нахождения информации в документах, написанных на другом языке.
+다국어 임베딩 모델과 검색어 확장을 활용하여 질문 언어와 문서 언어가 다른 경우에도 관련 정보를 검색하도록 설계되었습니다.
 
-Ответ формируется на языке вопроса пользователя.
+최종 답변은 사용자가 질문한 언어로 생성됩니다.
 
----
+🛡 환각(Hallucination) 최소화
 
-## 🛡 Защита от галлюцинаций
+LLM에는 검색된 문서의 내용만을 활용하도록 제한하는 시스템 프롬프트가 적용됩니다.
 
-LLM получает строгую инструкцию использовать **только найденный контекст**.
+시스템은 문서에서 확인되지 않은 날짜, 금액, 입학 요건, 장학금, 학과 및 학사 규정을 임의로 생성하지 않도록 설계되었습니다.
 
-Система не должна придумывать:
+충분한 근거가 없는 경우에는 정보가 부족하다는 대체 응답을 제공합니다.
 
-- даты;
-- суммы;
-- требования к поступлению;
-- языковые баллы;
-- стипендии;
-- названия департаментов;
-- академические правила;
-- другую информацию, отсутствующую в базе знаний.
+🛠 기술 스택
 
-Если информации недостаточно, используется fallback-ответ.
+구분
 
-Это позволяет уменьшить вероятность генерации неподтвержденной информации.
+기술
 
----
+프로그래밍 언어
 
-## 🛠 Технологии
-
-Проект использует:
-
-```text
 Python 3.11
+
+웹 인터페이스
+
 Streamlit
+
+벡터 데이터베이스
+
 ChromaDB
+
+임베딩
+
 Sentence Transformers
+
+임베딩 모델
+
 intfloat/multilingual-e5-base
+
+키워드 검색
+
 BM25
+
+하이브리드 검색
+
+Reciprocal Rank Fusion
+
+LLM
+
 Groq API
-PyMuPDF
-BeautifulSoup
-Docker
-Docker Compose
-```
 
-LLM по умолчанию:
+기본 LLM 모델
 
-```text
 openai/gpt-oss-20b
-```
 
----
+PDF 처리
 
-## 📁 Структура проекта
+PyMuPDF
 
-```text
+웹 문서 처리
+
+BeautifulSoup
+
+컨테이너
+
+Docker, Docker Compose
+
+📁 프로젝트 구조
+
 smart-university-hub/
 │
 ├── app.py
@@ -308,19 +291,9 @@ smart-university-hub/
 ├── test_set.json
 │
 ├── chunks.json
-│
 ├── data/
-│   └── donga/
-│       ├── 2026_donga_academics.pdf
-│       └── 2027_spring_international_student_undergraduate_admission.pdf
-│
 ├── md/
-│   ├── 2026_donga_academics.md
-│   ├── 2026_donga_academic_calendar.md
-│   └── 2027_spring_international_student_undergraduate_admission.md
-│
 ├── chroma_db/
-│
 ├── logs/
 │
 ├── requirements.txt
@@ -331,166 +304,133 @@ smart-university-hub/
 ├── docker-compose.yml
 │
 └── README.md
-```
 
----
+주요 파일 설명
 
-# 🐳 Запуск через Docker
+파일
 
-## 1. Клонировать репозиторий
+기능
 
-```bash
+app.py
+
+Streamlit 웹 인터페이스
+
+answer.py
+
+질문 분석 및 LLM 답변 생성
+
+index_search.py
+
+ChromaDB 및 하이브리드 검색
+
+chunk.py
+
+문서 청크 생성
+
+extract_pdf.py
+
+PDF 문서 추출
+
+extract_calendar.py
+
+학사 일정 웹페이지 추출
+
+evaluate.py
+
+검색 성능 평가
+
+rag_logger.py
+
+실행 로그 관리
+
+test_set.json
+
+평가용 질문 데이터
+
+chunks.json
+
+처리된 문서 청크
+
+🐳 Docker 실행 방법
+
+1. GitHub 저장소 복제
+
 git clone git@github.com:asel6320/donga_rag_chatbot.git
 cd donga_rag_chatbot
-```
 
----
+2. 환경 변수 설정
 
-## 2. Создать `.env`
+프로젝트 루트에 .env 파일을 생성하고 다음 내용을 입력합니다.
 
-Создайте файл:
-
-```text
-.env
-```
-
-На основе:
-
-```text
-.env.example
-```
-
-Добавьте Groq API key:
-
-```env
 GROQ_API_KEY=YOUR_GROQ_API_KEY
 LLM_MODEL=openai/gpt-oss-20b
-```
 
-Файл `.env` находится в `.gitignore` и не должен загружаться в GitHub.
+실제 API Key는 GitHub에 업로드하지 않습니다.
 
----
+3. Docker 실행
 
-## 3. Запустить Docker
-
-```bash
 docker compose up --build
-```
 
-После запуска приложение будет доступно по адресу:
+실행 후 브라우저에서 다음 주소로 접속합니다.
 
-```text
 http://localhost:8501
-```
 
-При первом запуске загрузка embedding-модели может занять некоторое время.
+최초 실행 시 Hugging Face에서 임베딩 모델을 다운로드하므로 시간이 다소 소요될 수 있습니다.
 
----
+4. Docker 종료
 
-## 4. Остановить приложение
+터미널에서 Ctrl + C를 누른 후 다음 명령어를 실행합니다.
 
-Нажмите:
-
-```text
-Ctrl + C
-```
-
-Затем:
-
-```bash
 docker compose down
-```
 
----
+💻 로컬 실행 방법
 
-# 💻 Локальный запуск
+1. 가상환경 생성
 
-## 1. Создать виртуальное окружение
+python3.11 -m venv .venv
 
-```bash
-python3.11 -m venv smart-university-hub
-```
+macOS / Linux:
 
-Активировать:
+source .venv/bin/activate
 
-### macOS / Linux
+Windows:
 
-```bash
-source smart-university-hub/bin/activate
-```
+.venv\Scripts\activate
 
----
+2. 라이브러리 설치
 
-## 2. Установить зависимости
-
-```bash
 pip install -r requirements.txt
-```
 
----
+3. 환경 변수 설정
 
-## 3. Настроить `.env`
+.env 파일에 Groq API Key와 모델명을 입력합니다.
 
-```env
 GROQ_API_KEY=YOUR_GROQ_API_KEY
 LLM_MODEL=openai/gpt-oss-20b
-```
 
----
+4. Streamlit 실행
 
-## 4. Запустить Streamlit
-
-```bash
 streamlit run app.py
-```
 
-Открыть:
+접속 주소: http://localhost:8501
 
-```text
-http://localhost:8501
-```
+🧩 문서 처리 파이프라인
 
----
+PDF 및 웹페이지 추출
 
-# 🧩 Подготовка документов
-
-Pipeline обработки документов состоит из нескольких этапов.
-
-### PDF → Markdown
-
-```bash
 python extract_pdf.py
-```
-
-Для академического календаря используется:
-
-```bash
 python extract_calendar.py
-```
 
-После extraction документы сохраняются в папке:
+추출한 문서는 Markdown 형식으로 저장됩니다.
 
-```text
-md/
-```
+문서 청크 생성
 
----
-
-### Markdown → Chunks
-
-```bash
 python chunk.py
-```
 
-Chunks сохраняются в:
+생성된 청크는 chunks.json에 저장됩니다.
 
-```text
-chunks.json
-```
+각 청크에는 다음과 같은 메타데이터가 포함됩니다.
 
-Каждый chunk содержит metadata, например:
-
-```text
 source
 category
 page
@@ -499,130 +439,117 @@ level
 student_type
 intake
 content_type
-```
 
----
+현재 데이터 구성
 
-## 📊 Текущая база chunks
+문서 유형
 
-В текущей версии базы знаний:
+청크 수
 
-```text
-Admissions:        55 chunks
-Academic policy:   84 chunks
-Academic calendar:  4 chunks
---------------------------------
-Total:            143 chunks
-```
+입학 안내
 
-Из них таблицы также сохраняются как отдельный тип контента для более точного retrieval.
+55
 
----
+학사 규정
 
-# 🧪 Evaluation
+84
 
-Для проверки качества retrieval используется:
+학사 일정
 
-```text
-evaluate.py
-test_set.json
-```
+4
 
-Тестовый набор включает вопросы по:
+전체
 
-- admissions;
-- academic policy;
-- academic calendar;
-- multilingual retrieval;
-- вопросам, для которых информация отсутствует.
+143
 
-Полученные результаты retrieval evaluation:
+표 형식의 데이터도 별도로 처리하여 검색에 활용합니다.
 
-```text
-Hit@5: 29 / 31
-Hit@5 accuracy: ~94%
-MRR: 0.841
-Keyword recall: ~87%
-```
+🧪 성능 평가(Evaluation)
 
-Эти метрики используются для проверки того, насколько часто правильный контекст попадает в Top-5 результатов поиска.
+시스템의 검색 성능을 확인하기 위해 evaluate.py와 test_set.json을 사용합니다.
 
----
+평가 데이터에는 입학 안내, 학사 규정, 학사 일정 및 다국어 질문이 포함됩니다.
 
-# 💬 Примеры вопросов
+Retrieval 평가 결과
 
-### Admissions
+평가 지표
 
-```text
+결과
+
+Hit@5
+
+29 / 31
+
+Hit@5 Accuracy
+
+약 94%
+
+MRR
+
+0.841
+
+Keyword Recall
+
+약 87%
+
+Hit@5는 정답과 관련된 문서가 상위 5개 검색 결과에 포함되는 비율을 의미합니다.
+
+MRR(Mean Reciprocal Rank)은 정답 문서가 검색 결과에서 얼마나 높은 순위에 위치하는지 평가하는 지표입니다.
+
+💬 질문 예시
+
+입학 안내
+
 What is the application fee?
 What documents do I need?
 What departments can international students apply to?
 What scholarships are available for freshmen?
-What are the English language requirements?
-```
 
-### Academic Policy
+학사 규정
 
-```text
 Can I retake a course?
 What is the academic warning criterion?
 Can I extend my academic leave?
-What happens if I do not return after academic leave?
-```
 
-### Academic Calendar
+학사 일정
 
-```text
 When does the first semester start?
 When is course registration?
-When are the midterm exams?
 When are the final exams?
-```
 
-### Русский
+한국어
 
-```text
-Когда заканчивается регистрация?
-Какие документы нужны для поступления?
-Какие есть стипендии?
-Когда начинаются финальные экзамены?
-```
-
-### 한국어
-
-```text
 수강신청 기간은 언제인가요?
 재수강이 가능한가요?
 1학기 기말고사는 언제인가요?
 외국인 신입생 장학금이 있나요?
-```
 
----
+러시아어
 
-# ⚠️ Ограничения
+Какие документы нужны для поступления?
+Какие есть стипендии?
+Когда начинаются финальные экзамены?
 
-Система отвечает только на основе документов, находящихся в текущей базе знаний.
+⚠️ 시스템의 한계
 
-Если необходимой информации нет в загруженных официальных документах, система должна сообщить об отсутствии информации, а не использовать внешние знания.
+현재 시스템은 지식 베이스에 등록된 공식 문서만을 기반으로 답변합니다.
 
-Качество ответа зависит от:
+따라서 등록되지 않은 학년도나 최신 공지사항에 대한 정보는 제공하지 못할 수 있습니다.
 
-- качества extraction исходного документа;
-- структуры Markdown;
-- chunking;
-- retrieval;
-- полноты базы знаний.
+또한 검색 및 답변 품질은 문서 추출, Markdown 구조, 청크 분할 및 검색 정확도에 영향을 받습니다.
 
-Некоторые короткие или неоднозначные follow-up вопросы могут требовать дополнительного контекста.
+현재 대화 기록은 화면에 표시되지만, 이전 대화 내용을 이용한 후속 질문 해석 기능은 완전히 구현되지 않았습니다.
 
----
+🔐 보안
 
-# 🎯 Цель проекта
+Groq API Key는 .env 파일을 통해 관리합니다.
 
-Цель Smart University Knowledge Hub — показать, как RAG может использоваться для создания надежного университетского AI-помощника, который:
+.env는 .gitignore에 등록되어 GitHub에 업로드되지 않으며, .env.example에는 실제 API Key를 포함하지 않습니다.
 
-- работает с официальными документами;
-- поддерживает несколько языков;
-- предоставляет проверяемые ответы;
-- снижает количество hallucinations;
-- может расширяться новыми университетскими документами без изменения основной архитектуры.
+🎯 프로젝트 목표
+
+Smart University Knowledge Hub는 공식 대학 문서와 RAG 기술을 결합하여 신뢰할 수 있는 다국어 대학 정보 안내 시스템을 구축하는 것을 목표로 합니다.
+
+이를 통해 학생들은 입학 및 학사 정보를 자연어로 검색하고, 관련 출처를 확인하며, 필요한 정보를 보다 효율적으로 얻을 수 있습니다.
+
+향후 추가 공식 문서를 지식 베이스에 통합하여 서비스 범위를 확장할 수 있습니다.
